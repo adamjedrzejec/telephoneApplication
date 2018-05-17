@@ -16,18 +16,11 @@ public class TelephoneNumber implements Comparable<TelephoneNumber> {
   }
 
   public int compareTo(TelephoneNumber otherNumber) {
+    int compare = (Integer.toString(countryCode)).compareTo(Integer.toString(otherNumber.countryCode));
 
-      if (getCountryCode() > otherNumber.getCountryCode())
-          return 1;
-      else if (getCountryCode() < otherNumber.getCountryCode())
-          return -1;
-      else {
-          if (getLocalNumber() > otherNumber.getLocalNumber())
-              return 1;
-          else if (getLocalNumber() < otherNumber.getLocalNumber())
-              return -1;
-          else
-              return 0;
-      }
+    if (compare == 0){
+      return (String.valueOf(localNumber)).compareTo(String.valueOf(otherNumber.localNumber));
+    }
+    return compare;
   }
 }
